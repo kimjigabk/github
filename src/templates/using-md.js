@@ -16,7 +16,9 @@ const UsingMD = ({ data }) => {
   )
 }
 
-export const Head = () => <Seo title="Using MD" />
+export const Head = ({ data }) => (
+  <Seo title={data.markdownRemark.frontmatter.title} />
+)
 
 export default UsingMD
 

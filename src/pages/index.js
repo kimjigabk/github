@@ -30,7 +30,9 @@ const IndexPage = ({ data }) => {
           {edges.map(({ node }) => {
             return (
               <div key={node.id}>
-                <span>{node.frontmatter.title}</span>
+                <span>
+                  <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
+                </span>
                 <p>{node.excerpt}</p>
               </div>
             )
@@ -58,6 +60,9 @@ export const query = graphql`
         node {
           id
           excerpt
+          fields {
+            slug
+          }
           frontmatter {
             description
             title
