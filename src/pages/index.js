@@ -8,9 +8,11 @@ import * as styles from "../components/index.module.css"
 
 const IndexPage = ({ data }) => {
   console.log(data)
+  const { allMarkdownRemark } = data
+  const { edges } = allMarkdownRemark
   return (
     <Layout>
-      <div className={styles.textCenter}>
+      <div className={styles.textLeft}>
         <StaticImage
           src="../images/example.png"
           loading="eager"
@@ -24,7 +26,15 @@ const IndexPage = ({ data }) => {
           <h1>
             Welcome to <b>Gatsby!</b>
           </h1>
-          <h4>{data.allMarkdownRemark.totalCount}</h4>
+          <h4>{allMarkdownRemark.totalCount}</h4>
+          {edges.map(({ node }) => {
+            return (
+              <div key={node.id}>
+                <span>{node.frontmatter.title}</span>
+                <p>{node.excerpt}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </Layout>
