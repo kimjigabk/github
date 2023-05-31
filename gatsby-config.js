@@ -10,12 +10,18 @@
 module.exports = {
   siteMetadata: {
     title: `Github Project Compilation`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Project Compilation`,
     author: `@kimjigabk`,
-    siteUrl: `https://github.com/kimjigabk`,
+    siteUrl: `https://kimjigabk.github.io/github/`,
   },
   plugins: [
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-autolink-headers`],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,7 +36,6 @@ module.exports = {
         path: `${__dirname}/src/markdown`,
       },
     },
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

@@ -1,6 +1,7 @@
 ---
 title: "Hi"
 date: "2023-05-09"
+featuredImage: ../images/example.png
 ---
 
 ### Sample

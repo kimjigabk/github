@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <div className={styles.textLeft}>
-        <StaticImage
+        {/* <StaticImage
           src="../images/example.png"
           loading="eager"
           width={64}
@@ -21,19 +21,17 @@ const IndexPage = ({ data }) => {
           formats={["auto", "webp", "avif"]}
           alt=""
           style={{ marginBottom: `var(--space-3)` }}
-        />
+        /> */}
         <div>
-          <h1>
-            Welcome to <b>Gatsby!</b>
-          </h1>
-          <h4>{allMarkdownRemark.totalCount}</h4>
+          <h1>List of Projects</h1>
+          {/* <h4>{allMarkdownRemark.totalCount}</h4> */}
           {edges.map(({ node }) => {
             return (
               <div key={node.id}>
                 <span>
                   <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
                 </span>
-                <p>{node.excerpt}</p>
+                <p>{node.frontmatter.description}</p>
               </div>
             )
           })}
@@ -59,14 +57,12 @@ export const query = graphql`
       edges {
         node {
           id
-          excerpt
           fields {
             slug
           }
           frontmatter {
             description
             title
-            date
           }
         }
       }

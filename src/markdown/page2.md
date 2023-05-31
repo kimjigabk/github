@@ -1,6 +1,7 @@
 ---
 title: "아이묭"
 description: "아이묭 플레이리스트"
+featuredImage: ../images/example.png
 ---
 
 아이묭
